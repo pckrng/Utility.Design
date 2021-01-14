@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+      @font-face {
+          font-family: "proxima";
+          src: url(./proximanova-bold-webfont.ttf);
+          font-weight: bold;
+          font-style: normal;
+      }
+
+      @font-face {
+          font-family: "proxima";
+          src: url(./proximanova-regular-webfont.ttf);
+          font-weight: normal;
+          font-style: normal;
+      }
+    </style>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Utility Design</title>
+</head>
+
+<body>
+
+    <!-- Header Logo -->
+    <div class="stickyHeader">
+    <img class="logo" src="Assets/utility.svg" alt="logo">
+    <hr class="solid" id="logo">
+</div>
+
+    <!-- Image / Carousel -->
+
+<div id="page-wrap">
+    <div class="row">
+        <div class="column" id="left">
+    <img id="featured" src="./Assets/images/chair_grey.jpg">
+
+<div class="row" style="column-gap: 2px;" id="thumbCluster">
+    <img class="thumbs active" src="./Assets/images/chair_grey.jpg">
+    <img class="thumbs" src="./Assets/images/chair_pink.jpg">
+   </div>
+</div>
+             
+
+    <!-- Options & Info -->
+
+    <div class="column" id="right">
+        <div class="intro"  style="text-align: left;">
+        <h2>Hay About A Lounge Chair - Low AAL82</h2>
+        <p>From <strong style="font-size: 22px;">£779.00</strong></p>
+        <p style="font-family:proxima;color:green;margin-bottom: 4vh;"> &#10004 Made To Order - 6 - 8 Weeks</p>
+        <div id="line">
+        <hr class="solid" style="margin-right: 8vw;">
+    </div>
+<div id="options">
+        <h2>Fabric:</h2>
+
+        <select id="fabric" class="option">
+          <option>Select Your Fabric </option>
+          <option value='30.00'>Steelcut Trio (+ £30.00)</option>
+      </select> 
+        
+      <h2>Colour:</h2>
+
+      <select id="colour" class="option">
+        <option>Select Your Colour </option>
+        <option>SCT526</option>
+    </select> 
+
+  <h2>Leg Finish:</h2>
+      <select id="legFinish" class="option">
+        <option>Select Your Leg Finish </option>
+        <option>Matt Lacquer</option>
+    </select> 
+
+    <h2>Optional Seat Cushion:</h2>
+      <select id="cussion" class="option">
+        <option>Optional Seat Cushion </option>
+        <option value='109.00'>In Same Fabric, Group 4 (+ £109.00)</option>
+    </select> 
+        </div>
+    </div>
+    <!-- Dynamic Text & Pricing -->
+
+    <hr class="solid" style="margin-right: 8vw;">
+
+<div class="dynamicText">
+    <div class="row">
+<h3>Hay About A Lounge Chair - Low AAL82</h3>
+</div>  
+   
+<div class="fabric">
+    <div class="row"> 
+    <p style="float: left;"><strong>Fabric:</strong><input type="text" readonly id="fabricinput" placeholder="Please Select Your Fabric" size="50" style="float: right;"></p>
+</div>
+
+     <div class="colour">
+         <div class="row">
+    <p style="float: left;"><strong>Colour:</strong><input type="text" readonly id="colourinput"  placeholder="Please Select Your Colour" style="float: right;" size="50"></p> 
+</div>
+    <div class="legFinish">
+        <div class="row">
+    <p style="float: left;"><strong>Leg Finish:</strong><input type="text" readonly id="leginput"  placeholder="Please Select Your Leg Finish" size="50" style="float: right;"></p> 
+</div>
+
+<div class="cushion">
+    <div class="row">
+    <p style="float: left;"><strong>Cushsion:</strong><input type="text" readonly id="cushioninput"  placeholder="None Added" size="50" style="float: right;"></p> 
+</div>
+
+
+<div class="finalPrice">
+    <div class="row">
+    <p style="float: left;"><strong>Unit Price:</strong><input id="unitPrice" readonly name="Unitprice" type="text" placeholder="£779" style="float: right; font-weight: bold;"/></p>
+</div>   
+</div>
+</div>
+
+<hr class="solid" style="margin-right: 8vw">
+
+    <div class="options" id="total";>
+        <p style="text-align: left;">Quantity</p>
+        <input type="number" id="quantity" name="quantity" min="1" max="10" placeholder="1">
+        <h3 class="total">Total: 
+        <input id="price"  style=" font-weight: bold; margin-left: 5em" readonly name="price" type="text"/>
+        
+      </div>
+
+<button id="atc" class="atcbutton" style="font-weight: bold;">ADD TO CART</button>
+<div class="container">
+    <br>
+    <ul>
+        <li> &#10004 0% finance available, <a href="url">find out more</a></li>
+        <li> &#10004 Free UK mainland delivery</li>
+        <li> &#10004 100% Original designs only</li>
+        <li> &#10004 Price match. Found it cheaper? Contact us!</li>
+        <li> &#10004 Trade discount available</li>
+    </ul>
+</div>
+<div id="socialMedia" class="socialMedia">
+  <p>Share Online:<a href="#" class="fa fa-twitter"></a><a href="#" class="fa fa-facebook"></a><a href="#" class="fa fa-instagram"></a></p>
+</div>
+
+    <!-- Js -->
+
+<script type="text/javascript">
+
+let thumbs = document.getElementsByClassName('thumbs')
+
+let activeImages = document.getElementsByClassName('active')
+
+for (var i=0; i < thumbs.length; i++){
+
+thumbs[i].addEventListener('mouseover', function(){
+    console.log(activeImages)
+    
+    if (activeImages.length > 0){
+        activeImages[0].classList.remove('active')
+    }
+    
+
+    this.classList.add('active')
+    document.getElementById('featured').src = this.src
+})
+}
+
+
+let buttonRight = document.getElementById('slideRight');
+let buttonLeft = document.getElementById('slideLeft');
+
+buttonLeft.addEventListener('click', function(){
+document.getElementById('slider').scrollLeft -= 180
+})
+
+buttonRight.addEventListener('click', function(){
+document.getElementById('slider').scrollLeft += 180
+})
+
+</script>
+
+<script src="/jquery-3.5.1.js">
+</script>
+
+<script type="text/javascript">
+    $ = jQuery.noConflict();
+    var sum = 779;
+    $('select').change(function() {
+    debugger;
+    sum = 779;
+    $('option:selected').each(function() {
+    sum += parseInt($(this).val()) || 0; ;
+    });
+    $("#price").val("£" + sum);
+    let total = ($('#quantity').val() ? $('#quantity').val() : 1 )* sum ;
+    $("#price").val("£" + total);
+    });
+    $('#quantity').on('change',function(){
+    let total = $(this).val() * sum ;
+    $("#price").val("£" + total);
+    })
+    </script>
+
+<script type="text/javascript">
+$('select').change(function() {
+    var sum = 779;
+    $('option:selected').each(function() {
+    sum += parseInt($(this).val()) || 0; ;
+    });
+    $("#unitPrice").val("£" + sum + ".00");
+    }); 
+</script>
+
+<script>
+$(function() {
+   $("#fabric").change(function(){
+   var fabricchosen=$("#fabric option:selected").text();    
+   $("#fabricinput").val(fabricchosen);
+   })
+
+}) 
+</script>
+
+<script>
+$(function() {
+    $("#colour").change(function(){
+    var colourchosen=$("#colour option:selected").text();    
+    $("#colourinput").val(colourchosen);
+    })
+ 
+ }) 
+ </script>
+
+<script>
+    $(function() {
+        $("#legFinish").change(function(){
+        var legchosen=$("#legFinish option:selected").text();    
+        $("#leginput").val(legchosen);
+        })
+     
+     }) 
+     </script>
+
+<script>
+    $(function() {
+        $("#cussion").change(function(){
+        var cushionchosen=$("#cussion option:selected").text();    
+        $("#cushioninput").val(cushionchosen);
+        })
+     
+     }) 
+     </script>
+ 
+ </body>
+</html>
